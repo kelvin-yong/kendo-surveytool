@@ -1,4 +1,4 @@
-define(["jQuery", "kendo", "app/survey-model"], function ($, kendo, surveyModel) {
+define(["jQuery", "kendo", "app/survey-model", "app/storage-service"], function ($, kendo, surveyModel, storage) {
     var _app;
     var nextLink, prevLink, backButtonText;
 
@@ -22,11 +22,18 @@ define(["jQuery", "kendo", "app/survey-model"], function ($, kendo, surveyModel)
         },
 
         submitSurvey: function(event) {
-            console.log('submit survey');
+          _app.showLoading();
+            setTimeout(function(){
+                _app.hideLoading();
+                _app.navigate(nextLink, "fade");
+            }, 1000);
         },
 
         resetSurvey: function(event) {
-            console.log('reset survey');
+            storage.remove('survey-answers');
+            surveyModel.set('answers', {});
+            surveyModel.set('buttonText', 'Take Survey');
+            _app.navigate("#home-view", "fade");
         },
 
         cancel: function(event) {
@@ -43,6 +50,12 @@ define(["jQuery", "kendo", "app/survey-model"], function ($, kendo, surveyModel)
         viewDidAppear: function(e) {
             var viewId = this.element.prop("id");
             console.log("View will appear: " + viewId);
+
+            if (viewId.indexOf("page")==0){
+                console.log("Saving survey answers locally");
+                storage.save("survey-answers", JSON.stringify(surveyModel.answers));
+                surveyModel.set('buttonText', 'Continue Survey');
+            }
 
             switch(viewId) {
                 case "home-view":

@@ -1,4 +1,4 @@
-define(["kendo"], function (kendo) {
+define(["kendo", "app/storage-service"], function (kendo, storage) {
     var viewModel = kendo.observable({
 
         options: {
@@ -34,6 +34,13 @@ define(["kendo"], function (kendo) {
         answers: {}
 
     });
+
+    // now do all data checking
+    var savedAnswers = storage.load("survey-answers");
+    if (savedAnswers){
+        viewModel.buttonText = "Continue Survey";
+        viewModel.answers = JSON.parse(savedAnswers);
+    }
 
     return viewModel;
 });
