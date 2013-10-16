@@ -37,8 +37,8 @@ define(["jQuery", "kendo", "app/survey-model", "app/storage-service"], function 
         },
 
         cancel: function(event) {
-            console.log("Cancel");
-            module.resetSurvey(null);
+            console.log("Reset");
+            $('.actionsheet').data("kendoMobileActionSheet").open();
         },
 
         viewInit: function(e) {

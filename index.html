@@ -13,8 +13,14 @@
         <div data-role="navbar">
             <a class="backbutton nav-button" data-align="left" data-role="backbutton" data-transition="slide:left reverse" data-click="smartSurvey.goPrev">Home</a>
             <span data-role="view-title"></span>
-            <a class="cancelbutton nav-button" data-align="right" data-role="button" data-click="smartSurvey.cancel">Cancel</a>
+            <a class="cancelbutton nav-button" data-align="right" data-role="button" data-click="smartSurvey.cancel">Reset</a>
         </div>
+    </div>
+    <div data-role="footer">
+        <!-- actionsheet -->
+        <ul data-role="actionsheet" class="actionsheet">
+            <li><a data-action="smartSurvey.resetSurvey">Reset Survey</a></li>
+        </ul>
     </div>
 </div>
 
