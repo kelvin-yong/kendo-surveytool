@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/kendo.mobile.all.min.css">
+    <script src="scripts/libs/require.js" data-main="scripts/main" ></script>
+    <title>King Steakhouse</title>
+</head>
+
+<body>
+<!-- Lay out -->
+<div data-role="layout" data-id="main-layout">
+    <div data-role="header">
+        <div data-role="navbar">
+            <a class="backbutton nav-button" data-align="left" data-role="backbutton" data-transition="slide:left reverse" data-click="smartSurvey.goPrev">Home</a>
+            <span data-role="view-title"></span>
+            <a class="cancelbutton nav-button" data-align="right" data-role="button" data-click="smartSurvey.cancel">Reset</a>
+        </div>
+    </div>
+    <div data-role="footer">
+        <!-- actionsheet -->
+        <ul data-role="actionsheet" class="actionsheet">
+            <li><a data-action="smartSurvey.resetSurvey">Reset Survey</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- views -->
+<div data-role="view" id="home-view" data-title="King Steakhouse" data-layout="main-layout"  data-model="smartSurvey.viewModel"
+     data-init="smartSurvey.viewInit"
+     data-show="smartSurvey.viewDidAppear"
+        >
+
+    <h2>King Steakhouse</h2>
+    <h2>Customer Satisfaction Survey!</h2>
+    <p>Thank you for patronising King Steakhouse.</p>
+    <p>Please complete this short survey so we can know more about you and improve our food and service.</p>
+    <p>As a token of appreciation, we will send you an e-coupon which you can redeem for 2 free drinks on your next visit!</p>
+    <a id="next-start" data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">
+        <span  data-bind="text: buttonText"></span>
+    </a>
+</div>
+
+
+</body>
+</html>

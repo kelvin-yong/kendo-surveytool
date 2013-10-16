@@ -1,0 +1,35 @@
+<!-- view: page3 -->
+<div data-role="view" id="page3-view" data-title="Step 3 of 4" data-layout="main-layout" data-show="smartSurvey.viewDidAppear" data-model="smartSurvey.viewModel">
+    <ul data-role="listview" data-style="inset" data-type="group">
+        <li>Rate Our Service
+            <ul>
+                <li>
+                    <label>
+                        Friendly
+                        <select data-value-field="id" data-text-field="name"
+                                data-bind="value: answers.c1, source: options.likert">
+                        </select>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Prompt and Attentive
+                        <select data-value-field="id" data-text-field="name"
+                                data-bind="value: answers.c2, source: options.likert">
+                        </select>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Knowledgeable
+                        <select data-value-field="id" data-text-field="name"
+                                data-bind="value: answers.c3, source: options.likert">
+                        </select>
+                    </label>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+    <a data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">Next</a>
+</div>
