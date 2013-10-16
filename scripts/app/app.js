@@ -1,4 +1,4 @@
-define(["jQuery", "kendo"], function ($, kendo) {
+define(["jQuery", "kendo", "app/survey-model"], function ($, kendo, surveyModel) {
     var _app;
     var nextLink, prevLink, backButtonText;
 
@@ -36,7 +36,7 @@ define(["jQuery", "kendo"], function ($, kendo) {
         viewWillAppear: function(e) {
             var viewId = this.element.prop("id");
             console.log("View will appear: " + viewId);
-            if (viewId == "home-view") {
+            if (viewId == "home-view" || viewId == "thankyou-view") {
                 e.view.header.find(".backbutton").hide();
                 e.view.header.find(".cancelbutton").hide();
             } else {
@@ -74,7 +74,8 @@ define(["jQuery", "kendo"], function ($, kendo) {
                     nextLink = "#home-view";
                     break;
             }
-        }
+        },
 
+        viewModel: surveyModel
     }
 });
