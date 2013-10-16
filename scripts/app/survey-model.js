@@ -1,5 +1,6 @@
 define(["kendo"], function (kendo) {
     var viewModel = kendo.observable({
+
         options: {
             goodness: [
                 { id: 1, name: "Bad" },
@@ -28,22 +29,9 @@ define(["kendo"], function (kendo) {
             ]
         },
 
-        answers: {
-            a1: null,
-            a2: null,
-            b1: null,
-            b2: null,
-            b3: null,
-            b4: null,
-            b5: null,
-            b6: null,
-            c1: null,
-            c2: null,
-            c3: null,
-            d1: null,
-            d2: null,
-            x: null
-        }
+        buttonText:"Take Survey",
+
+        answers: {}
 
     });
 

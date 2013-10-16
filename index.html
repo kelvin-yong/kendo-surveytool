@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -20,9 +19,9 @@
 </div>
 
 <!-- views -->
-<div data-role="view" id="home-view" data-title="King Steakhouse" data-layout="main-layout"
+<div data-role="view" id="home-view" data-title="King Steakhouse" data-layout="main-layout"  data-model="smartSurvey.viewModel"
      data-init="smartSurvey.viewInit"
-     data-before-show="smartSurvey.viewWillAppear"
+     data-show="smartSurvey.viewDidAppear"
         >
 
     <h2>King Steakhouse</h2>
@@ -30,166 +29,11 @@
     <p>Thank you for patronising King Steakhouse.</p>
     <p>Please complete this short survey so we can know more about you and improve our food and service.</p>
     <p>As a token of appreciation, we will send you an e-coupon which you can redeem for 2 free drinks on your next visit!</p>
-    <a id="next-start" data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">Take Survey</a>
+    <a id="next-start" data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">
+        <span  data-bind="text: buttonText"></span>
+    </a>
 </div>
 
-<!-- view: page1 -->
-<div data-role="view" id="page1-view" data-title="Step 1 of 4" data-layout="main-layout" data-before-show="smartSurvey.viewWillAppear" data-model="smartSurvey.viewModel">
-    <ul data-role="listview" data-style="inset" data-type="group">
-        <li>About You
-            <ul>
-                <li>
-                    <label>
-                        Name <input type="text" placeholder="Your Name" data-bind="value: answers.a0" />
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Your Gender
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.a1, source: options.gender">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Frequency of Visit
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.a2, source: options.frequency">
-                        </select>
-                    </label>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <a data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">Next</a>
-</div>
-
-<!-- view: page2 -->
-<div data-role="view" id="page2-view" data-title="Step 2 of 4" data-layout="main-layout" data-before-show="smartSurvey.viewWillAppear" data-model="smartSurvey.viewModel">
-    <ul data-role="listview" data-style="inset" data-type="group">
-        <li>Rate Our food
-            <ul>
-                <li>
-                    <label>
-                        Appetizers
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.b1, source: options.goodness">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Mains
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.b2, source: options.goodness">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Desserts
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.b3, source: options.goodness">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Drinks
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.b4, source: options.goodness">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Overall taste
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.b5, source: options.goodness">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Overall value for money
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.b6, source: options.goodness">
-                        </select>
-                    </label>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <a data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">Next</a>
-</div>
-
-<!-- view: page3 -->
-<div data-role="view" id="page3-view" data-title="Step 3 of 4" data-layout="main-layout" data-before-show="smartSurvey.viewWillAppear" data-model="smartSurvey.viewModel">
-    <ul data-role="listview" data-style="inset" data-type="group">
-        <li>Rate Our Service
-            <ul>
-                <li>
-                    <label>
-                        Friendly
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.c1, source: options.likert">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Prompt and Attentive
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.c2, source: options.likert">
-                        </select>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        Knowledgeable
-                        <select data-value-field="id" data-text-field="name"
-                                data-bind="value: answers.c3, source: options.likert">
-                        </select>
-                    </label>
-                </li>
-
-            </ul>
-        </li>
-    </ul>
-    <a data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">Next</a>
-</div>
-
-
-<div data-role="view" id="page4-view" data-title="Step 4 of 4" data-layout="main-layout" data-before-show="smartSurvey.viewWillAppear" data-model="smartSurvey.viewModel">
-    <ul data-role="listview" data-style="inset" data-type="group">
-        <li>Feedback
-            <ul>
-                <li>
-                    <label>
-                        Comments
-                        <textarea style="resize: none;" data-bind="value: answers.d1" placeholder="We value your feedback"></textarea>
-                    <label>
-                </li>
-            </ul>
-        </li>
-        <li>Send my e-coupon to
-            <ul>
-                <li>
-                    <label>
-                        Email <input type="email" placeholder="your@email.com" data-bind="value: answers.d2" />
-                    </label>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <a id="next-4" data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center; background-color: green">Submit</a>
-</div>
-
-<div data-role="view" id="thankyou-view" data-title="Thank you" data-layout="main-layout" data-before-show="smartSurvey.viewWillAppear"  data-model="smartSurvey.viewModel">
-    Thank you
-    <a id="next-4" data-click="smartSurvey.goNext" data-role="button" style="display: block; margin: 1em 2em; text-align: center;">Bye!</a>
-</div>
 
 </body>
 </html>
